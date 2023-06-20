@@ -21,6 +21,7 @@ struct HelloParams {
 async fn main() {
     let routes_all = Router::new()
         .merge(routes_hello())
+        .merge(web::routes_login)
         .fallback_service(routes_static());
 
     println!("Hello, world!");
@@ -40,7 +41,7 @@ fn routes_static() -> Router {
 fn routes_hello() -> Router {
     Router::new()
         .route("/hello", get(handler_hello))
-        .route("hello2/:name", get(handle_hello2))
+        .route("hello2/:name", get(handler_hello2))
 }
 
 async fn handler_hello(Query(params): Query<HelloParams>) -> impl IntoResponse {

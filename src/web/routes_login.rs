@@ -1,11 +1,11 @@
 use crate::{Error, Result};
 use axum::routing::post;
-use axum::{Json, Route};
+use axum::{Json, Router};
 use serde::Deserialize;
 use serde_json::{json, Value};
 
 pub fn routes() -> Router {
-    Router::new.route("/api/login", post(api_login))
+    Router::new().route("/api/login", post(api_login))
 }
 
 async fn api_login(payload: Json<LoginPayload>) -> Result<Json<Value>> {
@@ -20,6 +20,8 @@ async fn api_login(payload: Json<LoginPayload>) -> Result<Json<Value>> {
         "success": true
       }
     }));
+
+    Ok(body)
 }
 
 #[derive(Debug, Deserialize)]
