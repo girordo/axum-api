@@ -37,10 +37,7 @@ async fn main() {
 }
 
 async fn main_response_mapper(res: Response) -> Response {
-    println!(
-        "->> {:<12} - main_response_mapper - {params:?}",
-        "RES_MAPPER"
-    );
+    println!("->> {:<12} - main_response_mapper - {res:?}", "RES_MAPPER");
     println!();
     res
 }
