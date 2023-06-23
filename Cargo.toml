@@ -13,6 +13,7 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 axum = "0.6.16"
 tower-http = { version = "0.4", features = ["fs"] }
+tower-cookies = { version = "0.9.0" }
 
 [dev-dependencies]
 anyhow = "1"
